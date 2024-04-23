@@ -1,0 +1,45 @@
+<mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)= "sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened" >menu</mat-icon>
+      <mat-icon *ngIf="sidenav.opened" >close</mat-icon>
+    </button>
+    <span>Dashboard</span>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav="matSidenav" mode="side" opened>
+      <img class="avatar mat-elevation-z8"
+        src="https://pm1.aminoapps.com/6538/a613c79851e48320844c58e1ec035ebec7997759_00.jpg" alt="">
+      <h4 class="name">Bolkar Leimar</h4>
+      <p class="designation">Ingenieria de sistemas</p>
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button">
+        <mat-icon>person</mat-icon>
+        <span><a [routerLink]="['student/studentCreate']">Crear</a></span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon>person</mat-icon>
+        <span><a [routerLink]="['student/students']">Lista</a></span>
+      </button>
+      <button mat-button class="menu-button">
+        <mat-icon>person</mat-icon>
+        <span>Interes</span>
+      </button>
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button">
+        <mat-icon>logout</mat-icon>
+        <span>Salir</span>
+      </button>
+  
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <div class="content mat-elevation-z8">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
